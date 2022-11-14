@@ -82,6 +82,11 @@ namespace Roarsome
 		auto updateInfo = Roarsome::UpdateInfo();
 		updateInfo.MillisecondsSinceLastUpdate = _frameDurationInMS;
 
+		POINT cursorPoint;
+		GetCursorPos(&cursorPoint);
+		updateInfo.CursorPoint.x = cursorPoint.x;
+		updateInfo.CursorPoint.y = cursorPoint.y;
+
 		_ctr->Update(&updateInfo);
 
 		_startFrameTime = endFrameTime;

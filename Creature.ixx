@@ -9,6 +9,7 @@ export module Creature;
 import UpdateInfo;
 import Decision;
 import Wander;
+import ChaseCursor;
 
 using namespace std;
 using namespace Roarsome::Descisions;
@@ -67,14 +68,14 @@ namespace Roarsome
 
 	void Creature::SetupResources()
 	{
-		_bmp = new Gdiplus::Bitmap(L"Images\\Roar.png");
+		_bmp = new Gdiplus::Bitmap(L"Images\\bentham.png");
 	}
 
 	void Creature::Update(UpdateInfo* updateInfo)
 	{
 		if (_currentDescision == nullptr)
 		{
-			_currentDescision = new Roarsome::Descisions::Wander();
+			_currentDescision = new Roarsome::Descisions::ChaseCursor();
 		}
 
 		auto result = _currentDescision->Update(_position, updateInfo);
